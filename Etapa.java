@@ -1,0 +1,3 @@
+public enum Etapa {
+    ATACAR,RECIBIR,INICIO_TURNO,FIN_TURNO
+}
