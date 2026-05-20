@@ -119,6 +119,28 @@ return clon;
 
     }
 
+    public boolean atacaNormal(){
+
+for(Sello s : this.getSellos()){
+
+if(s.getEtapa()==Etapa.ATACAR){return false;}
+
+}
+return true;
+
+    }
+
+    public boolean sePuedeMeterSello(){
+
+return this.sellos.size()<3;
+
+    }
+
+    public void anadirSello(Sello s){
+
+        this.sellos.add(s);
+    }
+
     public boolean lanzarCarta(){
 
         return true;

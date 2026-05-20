@@ -1,6 +1,7 @@
 public class Tablero {
     private static Tablero instancia; 
-    public Carta[] huecos = new Carta[8]; 
+    private static Linea jugador; 
+     private static Linea leshy;
 
     private Tablero() { } 
 
@@ -21,7 +22,50 @@ public class Tablero {
         Tablero.instancia = instancia;
     }
 
-   
+    public static Linea ObtenerLineaJugador()
+    {
+        if (jugador == null) 
+        {
+            jugador = new Linea(); 
+        }
+        return jugador; 
+    }
+
+   public static Linea ObtenerLineaLeshy()
+    {
+        if (leshy == null) 
+        {
+            leshy = new Linea(); 
+        }
+        return leshy; 
+    }
+
+    public void activarSellos(Etapa etapa,Turno turno){
+Linea activar;
+        if(turno==Turno.JUGADOR){activar=Tablero.ObtenerLineaJugador();}
+
+        else{activar=Tablero.ObtenerLineaLeshy();}
+
+        for(Carta c: activar.getHuecos()) {
+
+if(c==null){}
+
+else{
+
+    for(Sello s : c.getSellos()){
+
+        if(s!=null && s.getEtapa()==etapa){
+
+            s.usarSello();
+        }
+    }
+}
+
+        }
+
+
+
+    }
 
     
 }
