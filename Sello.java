@@ -1,4 +1,4 @@
-public abstract class Sello{
+public  class Sello{
 
 private String nombre;
 private Etapa etapa;
@@ -26,6 +26,17 @@ public Etapa getEtapa() {
 
 public boolean isAtaca() {
     return ataca;
+}
+
+@Override
+public boolean equals(Object o){
+if(o==null){return false;}
+
+if(this==o){return true;}
+
+Sello otro = (Sello) o;
+
+return this.getNombre().equals(otro.getNombre());
 }
 
 

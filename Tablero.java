@@ -40,7 +40,7 @@ public class Tablero {
         return leshy; 
     }
 
-    public void activarSellos(Etapa etapa,Turno turno){
+    public void activarSellosInicio(Turno turno){
 Linea activar;
         if(turno==Turno.JUGADOR){activar=Tablero.ObtenerLineaJugador();}
 
@@ -54,7 +54,34 @@ else{
 
     for(Sello s : c.getSellos()){
 
-        if(s!=null && s.getEtapa()==etapa){
+        if(s!=null && s.getEtapa()==Etapa.INICIO_TURNO){
+
+            s.usarSello();
+        }
+    }
+}
+
+        }
+
+
+
+    }
+
+     public void activarSellosFinal(Turno turno){
+Linea activar;
+        if(turno==Turno.JUGADOR){activar=Tablero.ObtenerLineaJugador();}
+
+        else{activar=Tablero.ObtenerLineaLeshy();}
+
+        for(Carta c: activar.getHuecos()) {
+
+if(c==null){}
+
+else{
+
+    for(Sello s : c.getSellos()){
+
+        if(s!=null && s.getEtapa()==Etapa.FIN_TURNO){
 
             s.usarSello();
         }

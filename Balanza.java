@@ -1,30 +1,31 @@
 public class Balanza {
 
-    private static int puntos=0;
+    private static int puntos = 0;
 
-    private Balanza(){}
+    private Balanza() {
+    }
 
     public static int getPuntos() {
         return puntos;
     }
 
-public void empujar(int peso){
+    public static void empujar(int peso) {
 
+        Balanza.puntos += peso;
+    }
 
-    Balanza.puntos+=peso;
-}
+    public static int resultado() {
 
-public int resultado(){
+        if (puntos >= 5) {
+            Jugador.aumentarDientes(puntos - 5);
+            return 1;
+        }
 
+        else if (puntos <= -5) {
+            return -1;
+        }
 
-    if(puntos>=5){ 
-        Jugador.aumentarDientes(puntos-5);
-        return 1;}
-
-        else if(puntos<=-5){return -1;}
-        
         return 0;
-}
+    }
 
-    
 }
