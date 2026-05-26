@@ -71,7 +71,7 @@ public class Carta implements Cloneable {
         clon.nombre = this.nombre;
         clon.atk = this.atk;
         clon.hp = this.hp;
-        clon.sellos = this.sellos;
+        clon.sellos = new ArrayList<>(this.sellos);
 
         return clon;
 

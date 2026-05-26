@@ -2,6 +2,7 @@ public class Tablero {
     private static Tablero instancia; 
     private static Linea jugador; 
      private static Linea leshy;
+     private static Linea leshyTrasera;
 
     private Tablero() { } 
 
@@ -14,13 +15,7 @@ public class Tablero {
         return instancia; 
     }
 
-    public static Tablero get_instancia() {
-        return instancia;
-    }
-
-    public static void set_instancia(Tablero instancia) {
-        Tablero.instancia = instancia;
-    }
+   
 
     public static Linea ObtenerLineaJugador()
     {
@@ -38,6 +33,15 @@ public class Tablero {
             leshy = new Linea(); 
         }
         return leshy; 
+    }
+
+    public static Linea ObtenerLineaTraseraLeshy()
+    {
+        if (leshyTrasera == null) 
+        {
+            leshyTrasera = new Linea(); 
+        }
+        return leshyTrasera; 
     }
 
     public void activarSellosInicio(Turno turno){
@@ -93,6 +97,8 @@ else{
 
 
     }
+
+    
 
     
 }

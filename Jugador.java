@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Jugador {
 
@@ -22,6 +23,18 @@ public static int getDientes() {
     return dientes;
 }
 
+public static boolean anadirObjeto(Objeto o){
+
+if(Jugador.getMochila().size()>=3){
+
+    return false;
+}
+
+Jugador.getMochila().add(o);
+return true;
+
+}
+
 public static ArrayList<Objeto> getMochila() {
     return mochila;
 }
@@ -36,6 +49,26 @@ public static ArrayList<Carta> getMazo() {
 
 public static ArrayList<Carta> getMazoActual() {
     return mazoActual;
+}
+
+public static void cargarMazo(){
+
+for(Carta c :Jugador.getMazo()){
+Jugador.getMazoActual().add(c.clone());
+
+}
+
+Collections.shuffle(Jugador.getMazoActual());
+
+}
+
+public static void manoInicial(){
+
+for(int i=0;i<3;i++){
+
+    Jugador.getMano().add(Jugador.getMazoActual().get(i));
+}
+
 }
     
 }
