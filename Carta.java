@@ -24,6 +24,8 @@ public class Carta implements Cloneable {
         this.cantidad_Sangre = 1;
     }
 
+    
+
     public Carta() {
         this.nombre = "";
         this.atk = 0;
@@ -31,6 +33,14 @@ public class Carta implements Cloneable {
         this.sellos = null;
         this.cantidad_Sangre = 1;
     }
+
+    public static Carta crearArdilla(){
+
+      Carta a =  new Carta("Ardilla", 0, 1);
+      a.setCantidad_Sangre(0);
+      return a;
+    }
+    
 
     public String getNombre() {
         return nombre;
@@ -169,6 +179,14 @@ public class Carta implements Cloneable {
 
         }
         return false;
+    }
+
+    public int getCantidad_Sangre() {
+        return cantidad_Sangre;
+    }
+
+    public void setCantidad_Sangre(int cantidad_Sangre) {
+        this.cantidad_Sangre = cantidad_Sangre;
     }
 
 }

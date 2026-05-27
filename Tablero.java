@@ -99,6 +99,18 @@ else{
     }
 
     
+public int contarSangreLinea(){
 
-    
+int sangre=0;
+
+for(Carta c : Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()){
+
+    if(c==null){}
+    else{
+        sangre+=c.getCantidad_Sangre();
+    }
+}
+return sangre;
+
+}    
 }

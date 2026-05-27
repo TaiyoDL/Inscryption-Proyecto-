@@ -8,6 +8,7 @@ public class Jugador {
     private static ArrayList<Carta> mano;
     private static ArrayList<Carta> mazo;
     private static ArrayList<Carta> mazoActual;
+    private static ArrayList<Carta> ardillas;
 
 public static void aumentarDientes(int c){
 
@@ -39,6 +40,7 @@ public static ArrayList<Objeto> getMochila() {
     return mochila;
 }
 
+
 public static ArrayList<Carta> getMano() {
     return mano;
 }
@@ -69,6 +71,19 @@ for(int i=0;i<3;i++){
     Jugador.getMano().add(Jugador.getMazoActual().get(i));
 }
 
+}
+
+public static void cargarArdillas(){
+
+for(int i=0;i<12;i++){
+
+    Jugador.getArdillas().add(Carta.crearArdilla());
+}
+
+}
+
+public static ArrayList<Carta> getArdillas() {
+    return ardillas;
 }
     
 }
