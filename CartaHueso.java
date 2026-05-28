@@ -35,5 +35,10 @@ clon.coste_Hueso=this.coste_Hueso;
 
 return clon;
 }
+
+public String toString(){
+
+    return super.toString();
+}
     
 }

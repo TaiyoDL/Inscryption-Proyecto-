@@ -4,11 +4,11 @@ import java.util.Collections;
 public class Jugador {
 
     private static int dientes=0;
-    private static ArrayList<Objeto> mochila;
-    private static ArrayList<Carta> mano;
-    private static ArrayList<Carta> mazo;
-    private static ArrayList<Carta> mazoActual;
-    private static ArrayList<Carta> ardillas;
+   private static ArrayList<Objeto> mochila = new ArrayList<>();
+private static ArrayList<Carta> mano = new ArrayList<>();
+private static ArrayList<Carta> mazo = new ArrayList<>();
+private static ArrayList<Carta> mazoActual = new ArrayList<>();
+private static ArrayList<Carta> ardillas = new ArrayList<>();
 
 public static void aumentarDientes(int c){
 
@@ -84,6 +84,11 @@ for(int i=0;i<12;i++){
 
 public static ArrayList<Carta> getArdillas() {
     return ardillas;
+}
+
+public static void quitarDelMazo(Carta c){
+
+Jugador.mazoActual.remove(c);
 }
     
 }

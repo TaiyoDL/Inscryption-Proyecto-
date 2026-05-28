@@ -74,17 +74,19 @@ public class Carta implements Cloneable {
         this.sellos = sellos;
     }
 
-    public Carta clone() {
-
-        Carta clon = new Carta();
-
-        clon.nombre = this.nombre;
-        clon.atk = this.atk;
-        clon.hp = this.hp;
-        clon.sellos = new ArrayList<>(this.sellos);
-
-        return clon;
-
+   public Carta clone() {
+        try {
+            // super.clone() de Object mantiene de forma mágica el tipo real (CartaSangre, etc.)
+            Carta clon = (Carta) super.clone(); 
+            
+            // Copias los atributos mutables
+            clon.sellos = new ArrayList<>(this.sellos); 
+            
+            return clon;
+        } catch (CloneNotSupportedException e) {
+            // Esto no debería pasar ya que implementamos Cloneable
+            throw new RuntimeException(e);
+        }
     }
 
     public boolean atacaNormal() {
@@ -159,6 +161,21 @@ public class Carta implements Cloneable {
         }
 
     }
+    public int sacrificar(){
+
+        int sangre=this.getCantidad_Sangre();
+        Carta c = this;
+
+       for(int i=0;i<4;i++){
+
+if(Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[i]==c){
+
+Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[i]=null;
+}
+
+       }
+       return sangre;
+    }
 
     public void recorrerSellos(Etapa e) {
 
@@ -187,6 +204,11 @@ public class Carta implements Cloneable {
 
     public void setCantidad_Sangre(int cantidad_Sangre) {
         this.cantidad_Sangre = cantidad_Sangre;
+    }
+@Override
+    public String toString(){
+
+        return this.getNombre()+"("+this.getAtk()+"\\"+this.getHp()+")";
     }
 
 }

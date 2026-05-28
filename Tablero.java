@@ -99,7 +99,7 @@ else{
     }
 
     
-public int contarSangreLinea(){
+public  int contarSangreLinea(){
 
 int sangre=0;
 
@@ -113,4 +113,12 @@ for(Carta c : Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()){
 return sangre;
 
 }    
+
+public String toString(){
+
+
+
+return this.ObtenerLineaTraseraLeshy().toString()+this.ObtenerLineaLeshy().toString()+"-".repeat(107)+"\n"+this.ObtenerLineaJugador().toString();
+
+}
 }
