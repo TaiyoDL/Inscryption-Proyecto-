@@ -42,17 +42,25 @@ tablero.ObtenerLineaJugador().getHuecos()[1]=alce;
 tablero.ObtenerLineaJugador().getHuecos()[2]=osoPardo;
 tablero.ObtenerLineaLeshy().getHuecos()[0]=oposum;
 tablero.ObtenerLineaLeshy().getHuecos()[2]=reyDeHuesos;
+tablero.ObtenerLineaLeshy().getHuecos()[3]=gigaEsqueleto;
 tablero.ObtenerLineaTraseraLeshy().getHuecos()[1]=murcielago;
 tablero.ObtenerLineaTraseraLeshy().getHuecos()[3]=coyote;
-
+Balanza.imprimirBalanza();
 System.out.println(tablero);
+tablero.ObtenerLineaJugador().activarLinea(Turno.JUGADOR);
+Balanza.imprimirBalanza();
+tablero.ObtenerLineaLeshy().activarLinea(Turno.LESHY);
 ArrayList<Carta> mazo = Jugador.getMazoActual();
+Balanza.imprimirBalanza();
 
 // 2. Añadimos la carta al principio (o al final, según tu juego)
 mazo.add(0, granBlanco);
 mazo.get(0);
 Carta cartaALanzar = mazo.get(0);
 cartaALanzar.lanzarCarta();
+System.out.println(tablero);
+tablero.ObtenerLineaJugador().activarLinea(Turno.JUGADOR);
+Balanza.imprimirBalanza();
 System.out.println(tablero);
     }
     

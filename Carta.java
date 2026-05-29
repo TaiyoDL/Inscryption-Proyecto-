@@ -120,6 +120,8 @@ public class Carta implements Cloneable {
 
     public void atacar(int posicionCarta, Turno turno) {
 
+        int n=1;
+
         Linea lineaEnemiga;
 
         if (turno == Turno.JUGADOR) {
@@ -128,6 +130,7 @@ public class Carta implements Cloneable {
 
         else {
             lineaEnemiga = Tablero.ObtenerLineaJugador();
+            n=-1;
         }
 
         if (atacaNormal()) {
@@ -143,7 +146,7 @@ public class Carta implements Cloneable {
                     }
 
                     else {
-                        Balanza.empujar(this.getAtk());
+                        Balanza.empujar(this.getAtk()*n);
                     }
 
                 }
@@ -155,7 +158,7 @@ public class Carta implements Cloneable {
 
             else {
 
-                Balanza.empujar(this.getAtk());
+                Balanza.empujar(this.getAtk()*n);
             }
 
         }

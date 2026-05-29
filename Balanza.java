@@ -27,5 +27,8 @@ public class Balanza {
 
         return 0;
     }
+public static void imprimirBalanza(){
 
+    System.out.println(Balanza.getPuntos()+"\\"+"5");
+}
 }

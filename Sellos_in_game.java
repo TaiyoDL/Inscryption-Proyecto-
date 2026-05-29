@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Sellos_in_game {
-  private static  ArrayList<Sello> sellos;
+  private static  ArrayList<Sello> sellos = new ArrayList<>();
 
   public static ArrayList<Sello> getSellos() {
     return sellos;
