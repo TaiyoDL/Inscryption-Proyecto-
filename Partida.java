@@ -10,7 +10,7 @@ public class Partida {
 
     public static void cargarCartas() throws IOException{
 
-try (BufferedReader bf = new BufferedReader(new FileReader("C:\\Users\\Usuario\\Desktop\\Proyecto_Inscryption\\Inscryption-Proyecto-\\Cartas.txt"))) {
+try (BufferedReader bf = new BufferedReader(new FileReader(".\\Cartas.txt"))) {
     String linea = bf.readLine();
     
     while(linea!=null){
