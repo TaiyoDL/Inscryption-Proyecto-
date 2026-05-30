@@ -30,6 +30,7 @@ public class Pelea {
 
         }
         while (pelea) {
+            System.out.println("Turno "+(nturno+1)+"\n");
 
             if (!Jugador.getMazoActual().isEmpty() && !Jugador.getArdillas().isEmpty()) {
 
@@ -102,10 +103,10 @@ public class Pelea {
                         if (l < 0) {
                             l = 0;
                         }
-                        if (l >= Jugador.getMazoActual().size() - 1) {
-                            l = Jugador.getMazoActual().size() - 1;
+                        if (l > Jugador.getMano().size() - 1) {
+                            l = Jugador.getMano().size() - 1;
                         }
-                        System.out.println(tablero);
+                        Jugador.getMano().get(l).lanzarCarta();
                         break;
 
                     case 3:
@@ -138,7 +139,7 @@ public class Pelea {
 
             tablero.ObtenerLineaLeshy().activarLinea(Turno.LESHY);
 
-            if (nturno % 2 == 0 && nturno != 0) {
+            if (nturno%2== 0 && nturno != 0 && !mazoLeshy.isEmpty()) {
 
                 int c = m.nextInt(0, mazoLeshy.size());
 

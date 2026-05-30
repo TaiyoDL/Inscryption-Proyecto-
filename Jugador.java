@@ -93,7 +93,7 @@ public static void cargarArdillas(){
 
 for(int i=0;i<12;i++){
 
-    Jugador.getArdillas().add(Carta.crearArdilla());
+    Jugador.getArdillas().add(CartaSangre.crearArdilla());
 }
 
 }

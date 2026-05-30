@@ -23,6 +23,14 @@ public class CartaSangre extends Carta implements Cloneable {
         return "sangre";
     }
 
+public static Carta crearArdilla(){
+
+      CartaSangre a =  new CartaSangre("Ardilla", 0, 1,0);
+      
+      return a;
+    }
+
+
     public CartaSangre() {
         super();
         this.coste_Sangre =0;
@@ -58,7 +66,7 @@ int sangre=0;
 while(sangre<this.getCoste_Sangre()){
 System.out.println("Sacrifica!(Pon el numero de la posicion) ("+sangre+"\\"+this.getCoste_Sangre()+")");
 
-int p = n.nextInt();
+int p = n.nextInt()-1;
 if(p>3){p=3;}
 if(p<0){p=0;}
 n.nextLine();
@@ -81,7 +89,7 @@ if(!super.lanzarCarta()){
 boolean comprobar=true;
 while(comprobar){
 System.out.println("Donde quieres colocar la carta?");
-int posicion=n.nextInt();
+int posicion=n.nextInt()-1;
 if(posicion>3){posicion=3;}
 if(posicion<0){posicion=0;}
 n.nextLine();

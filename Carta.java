@@ -38,12 +38,7 @@ public class Carta implements Cloneable {
          this.cantidad_Huesos=1;
     }
 
-    public static Carta crearArdilla(){
-
-      Carta a =  new Carta("Ardilla", 0, 1);
-      a.setCantidad_Sangre(0);
-      return a;
-    }
+    
     
 
     public String getNombre() {
@@ -72,12 +67,12 @@ public class Carta implements Cloneable {
 
     public int nCoste(){
 
-        return 1;
+        return 0;
     }
 
     public String getTipo(){
 
-        return "s";
+        return "";
     }
 
     
@@ -191,8 +186,9 @@ public class Carta implements Cloneable {
 
 
                     }
-                    lineaEnemiga.getHuecos()[posicionCarta]=null;
+                    
                     System.out.println(lineaEnemiga.getHuecos()[posicionCarta].getNombre()+" debilitado");
+                    lineaEnemiga.getHuecos()[posicionCarta]=null;
                 }
             }
 

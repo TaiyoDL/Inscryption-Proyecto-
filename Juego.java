@@ -15,7 +15,7 @@ Jugador.getMazo().add(Partida.getCartasJuego().get(m.nextInt(0,Partida.getCartas
 rival.add(Partida.getCartasJuego().get(m.nextInt(0,Partida.getCartasJuego().size())));
 
         }
-        System.out.println("hola");
+        
 
         Pelea.batalla(rival);
 
