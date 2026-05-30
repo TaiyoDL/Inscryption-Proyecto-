@@ -71,7 +71,7 @@ Jugador.setHuesos(Jugador.getHuesos()-this.getCoste_Hueso());
 boolean comprobar=true;
 while(comprobar){
 System.out.println("Donde quieres colocar la carta?");
-int posicion=n.nextInt();
+int posicion=n.nextInt()-1;
 if(posicion>3){posicion=3;}
 if(posicion<0){posicion=0;}
 n.nextLine();

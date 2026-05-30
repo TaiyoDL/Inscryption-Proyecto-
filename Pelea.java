@@ -135,6 +135,32 @@ public class Pelea {
             }
             tablero.ObtenerLineaJugador().activarLinea(Turno.JUGADOR);
 
+ switch (Balanza.resultado()) {
+                case 1:
+
+                    System.out.println("Has ganado!");
+                    resultado = true;
+                    pelea = false;
+
+                    break;
+
+                case -1:
+                    System.out.println("Has perdido!");
+                    resultado = false;
+                    pelea = false;
+
+                    break;
+
+                default:
+
+            }
+            if (mazoLeshy.isEmpty() && !Tablero.ObtenerInstancia().hayCartasDeLeshy()) {
+                System.out.println("Leshy se ha quedado sin cartas en todos lados! \n Has ganado!");
+                resultado = true;
+                pelea = false;
+            }
+
+
             tablero.activarLineaTrasera();
 
             tablero.ObtenerLineaLeshy().activarLinea(Turno.LESHY);
