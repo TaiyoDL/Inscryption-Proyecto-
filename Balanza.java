@@ -12,6 +12,7 @@ public class Balanza {
     public static void empujar(int peso) {
 
         Balanza.puntos += peso;
+        Balanza.imprimirBalanza();
     }
 
     public static int resultado() {
@@ -29,6 +30,9 @@ public class Balanza {
     }
 public static void imprimirBalanza(){
 
-    System.out.println(Balanza.getPuntos()+"\\"+"5");
+    System.out.println("Balanza: "+Balanza.getPuntos()+"\\"+"5");
+}
+public static void inicio(){
+    Balanza.puntos=0;
 }
 }

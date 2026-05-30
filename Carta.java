@@ -7,6 +7,7 @@ public class Carta implements Cloneable {
     private int hp;
     private ArrayList<Sello> sellos;
     private int cantidad_Sangre;
+    private int cantidad_Huesos;
 
     public Carta(String nombre, int atk, int hp, ArrayList<Sello> sellos) {
         this.nombre = nombre;
@@ -14,6 +15,7 @@ public class Carta implements Cloneable {
         this.hp = hp;
         this.sellos = sellos;
         this.cantidad_Sangre = 1;
+        this.cantidad_Huesos=1;
     }
 
     public Carta(String nombre, int atk, int hp) {
@@ -22,6 +24,7 @@ public class Carta implements Cloneable {
         this.hp = hp;
         this.sellos = new ArrayList<Sello>();
         this.cantidad_Sangre = 1;
+         this.cantidad_Huesos=1;
     }
 
     
@@ -32,6 +35,7 @@ public class Carta implements Cloneable {
         this.hp = 0;
         this.sellos = null;
         this.cantidad_Sangre = 1;
+         this.cantidad_Huesos=1;
     }
 
     public static Carta crearArdilla(){
@@ -65,6 +69,18 @@ public class Carta implements Cloneable {
     public void setHp(int hp) {
         this.hp = hp;
     }
+
+    public int nCoste(){
+
+        return 1;
+    }
+
+    public String getTipo(){
+
+        return "s";
+    }
+
+    
 
     public ArrayList<Sello> getSellos() {
         return sellos;
@@ -102,6 +118,8 @@ public class Carta implements Cloneable {
 
     }
 
+    
+
     public boolean sePuedeMeterSello() {
 
         return this.sellos.size() < 3;
@@ -115,7 +133,15 @@ public class Carta implements Cloneable {
 
     public boolean lanzarCarta() {
 
-        return true;
+        boolean hayHueco=false;
+
+        for(int i=0;i<4;i++){
+
+           if( Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[i]==null){
+            hayHueco=true;
+           }
+        }
+        return hayHueco;
     }
 
     public void atacar(int posicionCarta, Turno turno) {
@@ -143,6 +169,7 @@ public class Carta implements Cloneable {
                     if (enemigo.getSellos().contains(Sellos_in_game.buscarSello("defenderVolador"))) {
 
                         enemigo.setHp(enemigo.getHp() - this.getAtk());
+                        
                     }
 
                     else {
@@ -153,6 +180,19 @@ public class Carta implements Cloneable {
 
                 else {
                     enemigo.setHp(enemigo.getHp() - this.getAtk());
+                    
+                }
+                if(enemigo.getHp()<=0){
+
+                    if(turno==Turno.LESHY){
+
+                        Jugador.setHuesos(Jugador.getHuesos()+enemigo.getCantidad_Huesos());
+
+
+
+                    }
+                    lineaEnemiga.getHuecos()[posicionCarta]=null;
+                    System.out.println(lineaEnemiga.getHuecos()[posicionCarta].getNombre()+" debilitado");
                 }
             }
 
@@ -162,6 +202,7 @@ public class Carta implements Cloneable {
             }
 
         }
+        
 
     }
     public int sacrificar(){
@@ -172,7 +213,7 @@ public class Carta implements Cloneable {
        for(int i=0;i<4;i++){
 
 if(Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[i]==c){
-
+ Jugador.setHuesos(Jugador.getHuesos()+c.getCantidad_Huesos());
 Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[i]=null;
 }
 
@@ -213,5 +254,13 @@ Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[i]=null;
 
         return this.getNombre()+"("+this.getAtk()+"\\"+this.getHp()+")";
     }
+
+public int getCantidad_Huesos() {
+    return cantidad_Huesos;
+}
+
+public void setCantidad_Huesos(int cantidad_Huesos) {
+    this.cantidad_Huesos = cantidad_Huesos;
+}
 
 }

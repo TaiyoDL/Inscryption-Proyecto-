@@ -13,6 +13,15 @@ public class CartaSangre extends Carta implements Cloneable {
         super(nombre, atk, hp);
         this.coste_Sangre = coste_Sangre;
     }
+    @Override
+     public int nCoste(){
+
+        return this.getCoste_Sangre();
+    }
+    public String getTipo(){
+
+        return "sangre";
+    }
 
     public CartaSangre() {
         super();
@@ -63,6 +72,12 @@ else{
     
 }
 
+if(!super.lanzarCarta()){
+
+    System.out.println("No hay huecos para lanzar la carta!");
+    return false;
+}
+
 boolean comprobar=true;
 while(comprobar){
 System.out.println("Donde quieres colocar la carta?");
@@ -78,7 +93,7 @@ if(Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[posicion]!=null)
 else{
 
 Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[posicion]=this.clone();
-    Jugador.quitarDelMazo(this);
+    Jugador.quitarDeMano(this);
     comprobar=false;
 }
 }

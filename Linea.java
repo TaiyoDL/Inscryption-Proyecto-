@@ -27,6 +27,8 @@ if(this.getHuecos()[i]!=null){
 
     }
 
+    
+
 @Override
 public String toString() {
     int anchoCelda = 26; // Ancho de cada carta
