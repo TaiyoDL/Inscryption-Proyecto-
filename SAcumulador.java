@@ -18,6 +18,8 @@ public class SAcumulador extends Sello {
 @Override
     public void usarSello(Carta esta,int posicion,Turno turno){
 
+        if(!Jugador.getMazoActual().isEmpty()){
+
         Jugador.mostrarMazoActual();
 
         Scanner n = new Scanner(System.in);
@@ -31,7 +33,7 @@ public class SAcumulador extends Sello {
 
          System.out.println("Robas un " + Jugador.getMazoActual().get(e));
                 Jugador.cogerCarta(Jugador.getMazoActual().get(e));
-
+        }
     }
     
 }
