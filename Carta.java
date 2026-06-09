@@ -38,6 +38,16 @@ public class Carta implements Cloneable {
          this.cantidad_Huesos=1;
     }
 
+    public void activarRecibir(int posicion,Turno t){
+
+        for(Sello s : this.getSellos()){
+
+if(s.getEtapa()==Etapa.RECIBIR){
+    s.usarSello(this, posicion, t);
+}
+        }
+    }
+
     
     
 
@@ -104,7 +114,7 @@ public class Carta implements Cloneable {
 
         for (Sello s : this.getSellos()) {
 
-            if (s.getEtapa() == Etapa.ATACAR) {
+            if (s.isAtaca() && s.getClass()!=SVolador.class) {
                 return false;
             }
 
@@ -113,7 +123,24 @@ public class Carta implements Cloneable {
 
     }
 
-    
+    public void activarSellosAtaque(int i,Turno turno){
+
+        for(Sello s : this.sellos){
+
+            if(s.getEtapa()==Etapa.ATACAR){
+
+                s.usarSello(this, i, turno);
+            }
+        }
+    }
+
+    public void mostrarSellos(){
+
+        for(Sello s : this.sellos){
+
+            System.out.println(s.getNombre());
+        }
+    }
 
     public boolean sePuedeMeterSello() {
 
@@ -161,9 +188,10 @@ public class Carta implements Cloneable {
 
                 if (this.esVolador()) {
 
-                    if (enemigo.getSellos().contains(Sellos_in_game.buscarSello("defenderVolador"))) {
+                    if (enemigo.getSellos().contains(Sellos_in_game.buscarSello("defendervolador"))) {
 
                         enemigo.setHp(enemigo.getHp() - this.getAtk());
+                        enemigo.activarRecibir(posicionCarta, turno);
                         
                     }
 
@@ -175,6 +203,7 @@ public class Carta implements Cloneable {
 
                 else {
                     enemigo.setHp(enemigo.getHp() - this.getAtk());
+                    enemigo.activarRecibir(posicionCarta, turno);
                     
                 }
                 if(enemigo.getHp()<=0){
@@ -198,9 +227,78 @@ public class Carta implements Cloneable {
             }
 
         }
+
+        
         
 
     }
+
+ public void atacarSinCondiciones(int posicionCarta, Turno turno) {
+
+        int n=1;
+
+        Linea lineaEnemiga;
+
+        if (turno == Turno.JUGADOR) {
+            lineaEnemiga = Tablero.ObtenerLineaLeshy();
+        }
+
+        else {
+            lineaEnemiga = Tablero.ObtenerLineaJugador();
+            n=-1;
+        }
+
+        
+
+            Carta enemigo = lineaEnemiga.getHuecos()[posicionCarta];
+            if (enemigo != null) {
+
+                if (this.esVolador()) {
+
+                    if (enemigo.getSellos().contains(Sellos_in_game.buscarSello("defenderVolador"))) {
+
+                        enemigo.setHp(enemigo.getHp() - this.getAtk());
+                        enemigo.activarRecibir(posicionCarta, turno);
+                        
+                    }
+
+                    else {
+                        Balanza.empujar(this.getAtk()*n);
+                    }
+
+                }
+
+                else {
+                    enemigo.setHp(enemigo.getHp() - this.getAtk());
+                    enemigo.activarRecibir(posicionCarta, turno);
+                    
+                }
+                if(enemigo.getHp()<=0){
+
+                    if(turno==Turno.LESHY){
+
+                        Jugador.setHuesos(Jugador.getHuesos()+enemigo.getCantidad_Huesos());
+
+
+
+                    }
+                    
+                    System.out.println(lineaEnemiga.getHuecos()[posicionCarta].getNombre()+" debilitado");
+                    lineaEnemiga.getHuecos()[posicionCarta]=null;
+                }
+            }
+
+            else {
+
+                Balanza.empujar(this.getAtk()*n);
+            }
+
+        
+        
+
+    }
+
+
     public int sacrificar(){
 
         int sangre=this.getCantidad_Sangre();
@@ -223,7 +321,7 @@ Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[i]=null;
 
             if (s.getEtapa() == e) {
 
-                s.usarSello();
+                s.usarSello(this);
             }
         }
 

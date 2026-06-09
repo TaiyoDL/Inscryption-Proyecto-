@@ -22,5 +22,13 @@ for(Sello s : sellos){
 return null;
 
   }
+
+  public static void cargarSellos(){
+
+    sellos.add(SDefenderVolador.ObtenerInstancia());
+    sellos.add(SDobleGolpe.ObtenerInstancia());
+    sellos.add(STripleGolpe.ObtenerInstancia());
+    sellos.add(SVolador.ObtenerInstancia());
+  }
     
 }

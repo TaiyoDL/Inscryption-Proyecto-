@@ -21,6 +21,7 @@ for(int i=0;i<4;i++){
 if(this.getHuecos()[i]!=null){
 
     this.getHuecos()[i].atacar(i, turno);
+    this.getHuecos()[i].activarSellosAtaque(i, turno);
 }
 
 }

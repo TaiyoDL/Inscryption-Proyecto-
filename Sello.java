@@ -11,7 +11,9 @@ public Sello(String nombre, Etapa etapa,boolean ataca) {
 }
 
 
-public void usarSello(){}
+public void usarSello(Carta esta,int posicion,Turno turno){}
+
+public void usarSello(Carta c){}
 
 
 public String getNombre() {

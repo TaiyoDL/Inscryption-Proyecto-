@@ -30,6 +30,25 @@ public class Pelea {
 
         }
         while (pelea) {
+            switch (Balanza.resultado()) {
+                case 1:
+
+                    System.out.println("Has ganado!");
+                    resultado = true;
+                    pelea = false;
+
+                    break;
+
+                case -1:
+                    System.out.println("Has perdido!");
+                    resultado = false;
+                    pelea = false;
+
+                    break;
+
+                default:
+
+            }
             System.out.println("Turno "+(nturno+1)+"\n");
 
             if (!Jugador.getMazoActual().isEmpty() && !Jugador.getArdillas().isEmpty()) {
@@ -85,6 +104,7 @@ public class Pelea {
                 System.out.println("4. Ver Balanza");
                 System.out.println("5. Ver Tablero");
                 System.out.println("6. Acabar turno");
+                 System.out.println("7. Ver sellos de una de tus cartas");
                 System.out.print("Elige una opción: ");
 
                 int opcion = n.nextInt();
@@ -128,8 +148,20 @@ public class Pelea {
                         turno = false;
 
                         break;
+
+                        case 7:
+
+                        System.out.println("Ingrese el numero de la posición de la carta(1-4)");
+
+                        int s=n.nextInt();
+                        n.nextLine();
+                        s--;
+                        if(s<0 || s>3 || tablero.ObtenerLineaJugador().getHuecos()[s]==null){}
+                        else{tablero.ObtenerLineaJugador().getHuecos()[s].mostrarSellos();}
+
+                        break;
                     default:
-                        System.out.println("\n[!] Opción inválida. Elige un número del 1 al 4.");
+                        System.out.println("\n[!] Opción inválida. Elige un número del 1 al 7.");
                 }
 
             }

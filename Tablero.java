@@ -56,7 +56,7 @@ public class Tablero {
 
                     if (s != null && s.getEtapa() == Etapa.INICIO_TURNO) {
 
-                        s.usarSello();
+                        s.usarSello(c);
                     }
                 }
             }
@@ -86,7 +86,7 @@ public class Tablero {
 
                     if (s != null && s.getEtapa() == Etapa.FIN_TURNO) {
 
-                        s.usarSello();
+                        s.usarSello(c);
                     }
                 }
             }
