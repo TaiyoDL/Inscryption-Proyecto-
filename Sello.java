@@ -10,6 +10,12 @@ public Sello(String nombre, Etapa etapa,boolean ataca) {
     this.ataca=ataca;
 }
 
+public Sello() {
+    this.nombre = "";
+    this.etapa = Etapa.FIN_TURNO;
+    this.ataca=false;
+}
+
 
 public void usarSello(Carta esta,int posicion,Turno turno){}
 

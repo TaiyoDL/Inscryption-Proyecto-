@@ -2,7 +2,7 @@ public class SVolador extends Sello {
 
     private static SVolador instancia;
 
-    public SVolador(String nombre, Etapa etapa, boolean ataca) {
+    private SVolador(String nombre, Etapa etapa, boolean ataca) {
         super(nombre, etapa, ataca);
     }
 

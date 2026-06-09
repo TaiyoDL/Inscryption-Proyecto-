@@ -29,6 +29,17 @@ return null;
     sellos.add(SDobleGolpe.ObtenerInstancia());
     sellos.add(STripleGolpe.ObtenerInstancia());
     sellos.add(SVolador.ObtenerInstancia());
+    sellos.add(SColmena.ObtenerInstancia());
+    sellos.add(SMadriguera.ObtenerInstancia());
+    sellos.add(SMortal.ObtenerInstancia());
+    sellos.add(SVelocista.ObtenerInstancia());
+    sellos.add(SConstructor.ObtenerInstancia());
+    sellos.add(SAcumulador.ObtenerInstancia());
+    sellos.add(SFecundidad.ObtenerInstancia());
+    sellos.add(SReyHueso.ObtenerInstancia());
+    sellos.add(SSacrificioDigno.ObtenerInstancia());
+    sellos.add(SEspinoso.ObtenerInstancia());
+    sellos.add(SHormiguero.ObtenerInstancia());
   }
     
 }

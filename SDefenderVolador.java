@@ -2,7 +2,7 @@ public class SDefenderVolador extends Sello {
 
      private static SDefenderVolador instancia;
 
-    public SDefenderVolador(String nombre, Etapa etapa, boolean ataca) {
+    private SDefenderVolador(String nombre, Etapa etapa, boolean ataca) {
         super(nombre, etapa, ataca);
     }
 

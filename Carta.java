@@ -123,11 +123,41 @@ if(s.getEtapa()==Etapa.RECIBIR){
 
     }
 
+    public boolean esEspinoso(){
+
+        
+        for(Sello s : this.sellos){if(s.getClass()==SEspinoso.class){return true;}}
+        return false;
+    }
+
     public void activarSellosAtaque(int i,Turno turno){
 
         for(Sello s : this.sellos){
 
             if(s.getEtapa()==Etapa.ATACAR){
+
+                s.usarSello(this, i, turno);
+            }
+        }
+    }
+
+    public void activarSellosLanzar(int i,Turno turno){
+
+        for(Sello s : this.sellos){
+
+            if(s.getEtapa()==Etapa.LANZAR){
+
+                s.usarSello(this, i, turno);
+            }
+        }
+    }
+
+
+     public void activarSellosMorir(int i,Turno turno){
+
+        for(Sello s : this.sellos){
+
+            if(s.getEtapa()==Etapa.MORIR){
 
                 s.usarSello(this, i, turno);
             }
@@ -166,6 +196,12 @@ if(s.getEtapa()==Etapa.RECIBIR){
         return hayHueco;
     }
 
+    public boolean contieneToqueMortal(){
+
+        for(Sello s : this.sellos){if(s.getClass()==SMortal.class){return true;}}
+        return false;
+    }
+
     public void atacar(int posicionCarta, Turno turno) {
 
         int n=1;
@@ -190,7 +226,14 @@ if(s.getEtapa()==Etapa.RECIBIR){
 
                     if (enemigo.getSellos().contains(Sellos_in_game.buscarSello("defendervolador"))) {
 
+                        if(this.contieneToqueMortal()){enemigo.setHp(enemigo.getHp() - 99999);}
+
+                        else{
+
                         enemigo.setHp(enemigo.getHp() - this.getAtk());
+                        }
+
+                        if(enemigo.esEspinoso()){this.setHp(this.getHp()-1);}
                         enemigo.activarRecibir(posicionCarta, turno);
                         
                     }
@@ -202,7 +245,13 @@ if(s.getEtapa()==Etapa.RECIBIR){
                 }
 
                 else {
-                    enemigo.setHp(enemigo.getHp() - this.getAtk());
+                    if(this.contieneToqueMortal()){enemigo.setHp(enemigo.getHp() - 99999);}
+
+                        else{
+
+                        enemigo.setHp(enemigo.getHp() - this.getAtk());
+                        }
+                        if(enemigo.esEspinoso()){this.setHp(this.getHp()-1);}
                     enemigo.activarRecibir(posicionCarta, turno);
                     
                 }
@@ -217,6 +266,7 @@ if(s.getEtapa()==Etapa.RECIBIR){
                     }
                     
                     System.out.println(lineaEnemiga.getHuecos()[posicionCarta].getNombre()+" debilitado");
+                    lineaEnemiga.getHuecos()[posicionCarta].activarSellosMorir(posicionCarta,turno);
                     lineaEnemiga.getHuecos()[posicionCarta]=null;
                 }
             }
@@ -257,7 +307,13 @@ if(s.getEtapa()==Etapa.RECIBIR){
 
                     if (enemigo.getSellos().contains(Sellos_in_game.buscarSello("defenderVolador"))) {
 
+                        if(this.contieneToqueMortal()){enemigo.setHp(enemigo.getHp() - 99999);}
+
+                        else{
+
                         enemigo.setHp(enemigo.getHp() - this.getAtk());
+                        }
+                        if(enemigo.esEspinoso()){this.setHp(this.getHp()-1);}
                         enemigo.activarRecibir(posicionCarta, turno);
                         
                     }
@@ -269,7 +325,13 @@ if(s.getEtapa()==Etapa.RECIBIR){
                 }
 
                 else {
-                    enemigo.setHp(enemigo.getHp() - this.getAtk());
+                    if(this.contieneToqueMortal()){enemigo.setHp(enemigo.getHp() - 99999);}
+
+                        else{
+
+                        enemigo.setHp(enemigo.getHp() - this.getAtk());
+                        }
+                        if(enemigo.esEspinoso()){this.setHp(this.getHp()-1);}
                     enemigo.activarRecibir(posicionCarta, turno);
                     
                 }
@@ -284,6 +346,7 @@ if(s.getEtapa()==Etapa.RECIBIR){
                     }
                     
                     System.out.println(lineaEnemiga.getHuecos()[posicionCarta].getNombre()+" debilitado");
+                    lineaEnemiga.getHuecos()[posicionCarta].activarSellosMorir(posicionCarta,turno);
                     lineaEnemiga.getHuecos()[posicionCarta]=null;
                 }
             }

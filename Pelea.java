@@ -26,6 +26,7 @@ public class Pelea {
             }
 
             tablero.ObtenerLineaLeshy().getHuecos()[p] = mazoLeshy.get(c);
+            mazoLeshy.get(c).activarSellosLanzar(p,Turno.LESHY);
             mazoLeshy.remove(mazoLeshy.get(c));
 
         }
@@ -93,6 +94,7 @@ public class Pelea {
             }
 
             turno = true;
+            tablero.activarSellosInicio(Turno.JUGADOR);
             while (turno) {
                 System.out.println(tablero);
                 System.out.println("\n=======================");
@@ -127,6 +129,7 @@ public class Pelea {
                             l = Jugador.getMano().size() - 1;
                         }
                         Jugador.getMano().get(l).lanzarCarta();
+                        Jugador.getMano().get(l).activarSellosLanzar(l,Turno.JUGADOR);
                         break;
 
                     case 3:
@@ -166,6 +169,7 @@ public class Pelea {
 
             }
             tablero.ObtenerLineaJugador().activarLinea(Turno.JUGADOR);
+            tablero.activarSellosFinal(Turno.JUGADOR);
 
  switch (Balanza.resultado()) {
                 case 1:
@@ -193,7 +197,11 @@ public class Pelea {
             }
 
 
+
+
             tablero.activarLineaTrasera();
+
+            tablero.activarSellosInicio(Turno.LESHY);
 
             tablero.ObtenerLineaLeshy().activarLinea(Turno.LESHY);
 
@@ -208,6 +216,7 @@ public class Pelea {
                 }
 
                 tablero.ObtenerLineaTraseraLeshy().getHuecos()[p] = mazoLeshy.get(c);
+                mazoLeshy.get(c).activarSellosLanzar(p,Turno.LESHY);
                 mazoLeshy.remove(mazoLeshy.get(c));
 
             }
@@ -236,6 +245,7 @@ public class Pelea {
                 resultado = true;
                 pelea = false;
             }
+            tablero.activarSellosFinal(Turno.LESHY);
             nturno++;
         }
 

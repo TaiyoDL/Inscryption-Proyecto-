@@ -120,6 +120,25 @@ public static void mostrarMano(){
     }
     System.out.println();
 }
+
+public static void mostrarMazoActual(){
+
+    for(Carta c : Jugador.getMazoActual()){
+
+        System.out.println((Jugador.getMazoActual().indexOf(c)+1)+":"+c+" coste: "+c.nCoste()+" "+c.getTipo());
+    }
+    System.out.println();
+}
+
+public static void mostrarMazo(){
+
+    for(Carta c : Jugador.getMazo()){
+
+        System.out.println((Jugador.getMazo().indexOf(c)+1)+":"+c+" coste: "+c.nCoste()+" "+c.getTipo());
+    }
+    System.out.println();
+}
+
 public static void cogerArdilla(){
 
     Jugador.mano.add(Jugador.getArdillas().get(0));

@@ -2,7 +2,7 @@ public class SDobleGolpe extends Sello {
 
      private static SDobleGolpe instancia;
 
-    public SDobleGolpe(String nombre, Etapa etapa, boolean ataca) {
+    private SDobleGolpe(String nombre, Etapa etapa, boolean ataca) {
         super(nombre, etapa, ataca);
     }
 

@@ -2,7 +2,7 @@ public class STripleGolpe extends Sello {
 
     private static STripleGolpe instancia;
 
-    public STripleGolpe(String nombre, Etapa etapa, boolean ataca) {
+    private STripleGolpe(String nombre, Etapa etapa, boolean ataca) {
         super(nombre, etapa, ataca);
     }
 
