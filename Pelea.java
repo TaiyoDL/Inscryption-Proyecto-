@@ -105,8 +105,10 @@ public class Pelea {
                 System.out.println("3. Ver Huesos");
                 System.out.println("4. Ver Balanza");
                 System.out.println("5. Ver Tablero");
-                System.out.println("6. Acabar turno");
-                 System.out.println("7. Ver sellos de una de tus cartas");
+                System.out.println("6. Ver sellos de una de tus cartas(En campo)");
+                System.out.println("7. Ver sellos de una de las cartas de Leshy(En campo)");
+                 System.out.println("8. Ver sellos de una de tus cartas(En Mano)");
+                  System.out.println("9. Acabar turno");
                 System.out.print("Elige una opción: ");
 
                 int opcion = n.nextInt();
@@ -146,13 +148,13 @@ public class Pelea {
 
                         break;
 
-                    case 6:
+                    case 9:
                         System.out.println("\n[Serafín del juego]: Has finalizado tu turno. Leshy mueve ficha.");
                         turno = false;
 
                         break;
 
-                        case 7:
+                        case 6:
 
                         System.out.println("Ingrese el numero de la posición de la carta(1-4)");
 
@@ -161,6 +163,32 @@ public class Pelea {
                         s--;
                         if(s<0 || s>3 || tablero.ObtenerLineaJugador().getHuecos()[s]==null){}
                         else{tablero.ObtenerLineaJugador().getHuecos()[s].mostrarSellos();}
+
+                        break;
+
+                        case 7:
+
+                        System.out.println("Ingrese el numero de la posición de la carta(1-4)");
+
+                        int ss=n.nextInt();
+                        n.nextLine();
+                        ss--;
+                        if(ss<0 || ss>3 || tablero.ObtenerLineaLeshy().getHuecos()[ss]==null){}
+                        else{tablero.ObtenerLineaLeshy().getHuecos()[ss].mostrarSellos();}
+
+                        break;
+
+                        case 8:
+
+                        Jugador.mostrarMano();
+
+                        System.out.println("Ingrese el numero de la posición de la carta");
+
+                        int sss=n.nextInt();
+                        n.nextLine();
+                        sss--;
+                        if(sss<0 || sss>=Jugador.getMano().size() || Jugador.getMano().get(sss)==null){}
+                        else{Jugador.getMano().get(sss).mostrarSellos();}
 
                         break;
                     default:
