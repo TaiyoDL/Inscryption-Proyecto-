@@ -43,6 +43,7 @@ Omori#2#3#2#sangre#doblegolpe,defendervolador
 Niko#1#2#1#sangre#volador,acumulador
 Mark#1#2#1#sangre#defendervolador,constructor
 Conejo#0#1#0#sangre#
+Rata Mochilera#2#2#2#sangre#baratijas
 Castor#1#3#2#sangre#constructor
 Ualabí#1#1#2#sangre#velocista
 Alce#3#7#3#sangre#velocista

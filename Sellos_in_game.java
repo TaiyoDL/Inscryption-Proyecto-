@@ -40,6 +40,7 @@ return null;
     sellos.add(SSacrificioDigno.ObtenerInstancia());
     sellos.add(SEspinoso.ObtenerInstancia());
     sellos.add(SHormiguero.ObtenerInstancia());
+    sellos.add(SBaratijas.ObtenerInstancia());
   }
     
 }

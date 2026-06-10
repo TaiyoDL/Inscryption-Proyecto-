@@ -65,7 +65,7 @@ public class SVelocista extends Sello{
 
         for(Sello a : c.getSellos()){
 
-            if(a.getClass()==SVelocistaD.class || a.getClass()==SVelocistaI.class){s.add(a);}
+            if(a instanceof SVelocistaD || a instanceof SVelocistaI){s.add(a);}
         }
         c.getSellos().removeAll(s);
         s.clear();
@@ -77,7 +77,7 @@ public class SVelocista extends Sello{
 
         for(Sello a : c.getSellos()){
 
-            if(a.getClass()==SVelocistaD.class || a.getClass()==SVelocistaI.class){return true;}
+            if(a instanceof SVelocistaD || a instanceof SVelocistaI){return true;}
         }
         return false;
        
@@ -89,7 +89,7 @@ public class SVelocista extends Sello{
 
         for(Sello a : c.getSellos()){
 
-            if(a.getClass()==SVelocistaD.class ){return true;}
+            if(a instanceof SVelocistaD ){return true;}
         }
         return false;
        
@@ -101,7 +101,7 @@ public class SVelocista extends Sello{
 
         for(Sello a : c.getSellos()){
 
-            if(a.getClass()==SVelocistaI.class ){return true;}
+            if(a instanceof SVelocistaI ){return true;}
         }
         return false;
        

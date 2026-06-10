@@ -22,6 +22,14 @@ public static int getHuesos() {
     return huesos;
 }
 
+public static void mostrarObjetos(){
+
+    for(Objeto o : Jugador.getMochila()){
+
+        System.out.println(Jugador.getMochila().indexOf(o)+1+"-"+o.getNombre()+"\n"+o.getDescripcion()+"\n");
+    }
+}
+
 
 
 public static void setHuesos(int huesos) {

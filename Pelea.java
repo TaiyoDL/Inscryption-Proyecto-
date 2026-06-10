@@ -108,7 +108,8 @@ public class Pelea {
                 System.out.println("6. Ver sellos de una de tus cartas(En campo)");
                 System.out.println("7. Ver sellos de una de las cartas de Leshy(En campo)");
                  System.out.println("8. Ver sellos de una de tus cartas(En Mano)");
-                  System.out.println("9. Acabar turno");
+                 System.out.println("9. Usar Objeto");
+                  System.out.println("10. Acabar turno");
                 System.out.print("Elige una opción: ");
 
                 int opcion = n.nextInt();
@@ -152,7 +153,7 @@ public class Pelea {
 
                         break;
 
-                    case 9:
+                    case 10:
                         System.out.println("\n[Serafín del juego]: Has finalizado tu turno. Leshy mueve ficha.");
                         turno = false;
 
@@ -193,6 +194,38 @@ public class Pelea {
                         sss--;
                         if(sss<0 || sss>=Jugador.getMano().size() || Jugador.getMano().get(sss)==null){}
                         else{Jugador.getMano().get(sss).mostrarSellos();}
+
+                        break;
+
+                        case 9:
+                            if(Jugador.getMochila().isEmpty()){}
+
+                            else{
+
+                                Jugador.mostrarObjetos();
+                                System.out.println("Pon el número del objeto que quieres usar(pon -1 para cancelar)");
+                                int obb=n.nextInt();
+                                n.nextLine();
+                                obb--;
+                                if(obb<0 && obb!=-2){obb=0;}
+                                if(obb>=Jugador.getMochila().size()){obb=Jugador.getMochila().size()-1;}
+                                if(obb==-2){}
+                                else{
+
+                                    if(Jugador.getMochila().get(obb) instanceof  ObjetoGeneral){Jugador.getMochila().get(obb).usarObjeto();}
+                                    else if(Jugador.getMochila().get(obb) instanceof ObjetoCarta){
+
+System.out.println("En que carta enemiga quieres usarlo?(Pon la posicion del 1 al 4)");
+int pp=n.nextInt();
+n.nextLine();
+pp--;
+if(pp<0){pp=0;}
+if(pp>3){pp=3;}
+Jugador.getMochila().get(obb).usarObjeto(pp);
+
+                                    }
+                                }
+                            }
 
                         break;
                     default:

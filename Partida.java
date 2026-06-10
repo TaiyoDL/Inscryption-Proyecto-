@@ -59,5 +59,11 @@ try (BufferedReader bf = new BufferedReader(new FileReader(".\\Cartas.txt"))) {
         }
         return s;
     }
+
+    public static void cargarJuego() throws IOException{
+
+        cargarCartas();
+        Objetos_In_Game.cargarObjetos();
+    }
     
 }

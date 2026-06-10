@@ -114,7 +114,7 @@ if(s.getEtapa()==Etapa.RECIBIR){
 
         for (Sello s : this.getSellos()) {
 
-            if (s.isAtaca() && s.getClass()!=SVolador.class) {
+            if (s.isAtaca() && !(s instanceof SVolador)) {
                 return false;
             }
 
@@ -126,7 +126,7 @@ if(s.getEtapa()==Etapa.RECIBIR){
     public boolean esEspinoso(){
 
         
-        for(Sello s : this.sellos){if(s.getClass()==SEspinoso.class){return true;}}
+        for(Sello s : this.sellos){if(s instanceof SEspinoso){return true;}}
         return false;
     }
 
@@ -198,7 +198,7 @@ if(s.getEtapa()==Etapa.RECIBIR){
 
     public boolean contieneToqueMortal(){
 
-        for(Sello s : this.sellos){if(s.getClass()==SMortal.class){return true;}}
+        for(Sello s : this.sellos){if(s instanceof SMortal){return true;}}
         return false;
     }
 
