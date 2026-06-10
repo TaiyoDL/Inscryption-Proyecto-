@@ -130,8 +130,12 @@ public class Pelea {
                         if (l > Jugador.getMano().size() - 1) {
                             l = Jugador.getMano().size() - 1;
                         }
-                        Jugador.getMano().get(l).lanzarCarta();
-                        Jugador.getMano().get(l).activarSellosLanzar(l,Turno.JUGADOR);
+
+                        
+                        int g=Jugador.getMano().get(l).lanzarCarta();
+                        if(g!=-1){
+                        tablero.ObtenerLineaJugador().getHuecos()[g].activarSellosLanzar(g,Turno.JUGADOR);
+                        }
                         break;
 
                     case 3:

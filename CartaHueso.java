@@ -42,12 +42,13 @@ public String toString(){
     return super.toString();
 }
 
- public boolean lanzarCarta(){
+ public int lanzarCarta(){
+    int posicion=-1;
 
-if(!super.lanzarCarta()){
+if(super.lanzarCarta()==0){
 
     System.out.println("No hay huecos en tu linea!");
-    return false;
+    return -1;
 }
 
 Scanner n = new Scanner(System.in);
@@ -56,14 +57,14 @@ String d = n.nextLine();
 
 if(d.toLowerCase().equals("s")){
 
-    return false;
+    return -1;
 }
 
 
 if(Jugador.getHuesos()<this.getCoste_Hueso()){
 
     System.out.println("Huesos insuficientes!");
-    return false;
+    return -1;
 }
 
 Jugador.setHuesos(Jugador.getHuesos()-this.getCoste_Hueso());
@@ -71,7 +72,7 @@ Jugador.setHuesos(Jugador.getHuesos()-this.getCoste_Hueso());
 boolean comprobar=true;
 while(comprobar){
 System.out.println("Donde quieres colocar la carta?");
-int posicion=n.nextInt()-1;
+ posicion=n.nextInt()-1;
 if(posicion>3){posicion=3;}
 if(posicion<0){posicion=0;}
 n.nextLine();
@@ -87,7 +88,7 @@ Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[posicion]=this;
     comprobar=false;
 }
 }
-return true;
+return posicion;
     }
 @Override
      public int nCoste(){

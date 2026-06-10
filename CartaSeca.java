@@ -9,14 +9,15 @@ public class CartaSeca extends Carta implements Cloneable {
         this.setCantidad_Sangre(0);
     }
 
-     public boolean lanzarCarta(){
+     public int lanzarCarta(){
+        int posicion=-1;
 Scanner n = new Scanner(System.in);
 System.out.println("Quiere cancelar la accion? (s/n) \n");
 String d = n.nextLine();
 
 if(d.toLowerCase().equals("s")){
 
-    return false;
+    return -1;
 }
 
 
@@ -42,16 +43,16 @@ else{
     
 
 
-if(!super.lanzarCarta()){
+if(super.lanzarCarta()==0){
 
     System.out.println("No hay huecos para lanzar la carta!");
-    return false;
+    return -1;
 }
 
 boolean comprobar=true;
 while(comprobar){
 System.out.println("Donde quieres colocar la carta?");
-int posicion=n.nextInt()-1;
+ posicion=n.nextInt()-1;
 if(posicion>3){posicion=3;}
 if(posicion<0){posicion=0;}
 n.nextLine();
@@ -67,7 +68,7 @@ Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[posicion]=this.clon
     comprobar=false;
 }
 }
-return true;
+return posicion;
     }
 
     public int sacrificar(){

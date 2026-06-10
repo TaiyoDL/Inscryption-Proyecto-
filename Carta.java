@@ -183,14 +183,14 @@ if(s.getEtapa()==Etapa.RECIBIR){
         this.sellos.add(s);
     }
 
-    public boolean lanzarCarta() {
+    public int lanzarCarta() {
 
-        boolean hayHueco=false;
+        int hayHueco=0;
 
         for(int i=0;i<4;i++){
 
            if( Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[i]==null){
-            hayHueco=true;
+            hayHueco=1;
            }
         }
         return hayHueco;
