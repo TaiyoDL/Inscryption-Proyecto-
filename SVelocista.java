@@ -18,42 +18,53 @@ public class SVelocista extends Sello{
     }
 @Override
     public void usarSello(Carta esta,int posicion,Turno turno){
+        
 
-        if(turno==Turno.JUGADOR){
-
-            Linea linea = Tablero.ObtenerInstancia().ObtenerLineaJugador();
+       Linea linea; 
+        if (turno == Turno.JUGADOR) {
+            linea = Tablero.ObtenerInstancia().ObtenerLineaJugador();
+        } else {
+            linea = Tablero.ObtenerInstancia().ObtenerLineaLeshy();
         }
 
-        else{Linea linea = Tablero.ObtenerInstancia().ObtenerLineaLeshy();}
-
-        if(!contieneMovimiento(esta)){
-
+        
+        if (!contieneMovimiento(esta)) {
+         
             esta.getSellos().add(new SVelocistaD());
+
+            for(Sello s : esta.getSellos()){
+
+                if(s instanceof SVelocistaD){
+
+                    s.usarSello(esta, posicion, turno);
+                }
+            }
         }
 
         
-
-        
-
-        
-
-        if(posicion==3 && !izquierda(esta)){
-
+        if (posicion == 3 && derecha(esta)) {
             eliminarMovimiento(esta);
             esta.getSellos().add(new SVelocistaI());
+             for(Sello s : esta.getSellos()){
 
+                if(s instanceof SVelocistaI){
 
+                    s.usarSello(esta, posicion, turno);
+                }
+            }
         }
 
-         if(posicion==0 && !derecha(esta)){
-
+        else if (posicion == 0 && izquierda(esta)) {
             eliminarMovimiento(esta);
             esta.getSellos().add(new SVelocistaD());
+             for(Sello s : esta.getSellos()){
 
+                if(s instanceof SVelocistaD){
 
+                    s.usarSello(esta, posicion, turno);
+                }
+            }
         }
-
-
         
 
 

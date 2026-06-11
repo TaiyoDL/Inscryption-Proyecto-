@@ -1,6 +1,9 @@
 public class SVelocistaI extends Sello{
 
-     public SVelocistaI(){super();}
+    public SVelocistaI() {
+        super("velocistaI",Etapa.FIN_TURNO,false);
+        
+    }
 
     @Override
     public void usarSello(Carta esta,int posicion,Turno turno){

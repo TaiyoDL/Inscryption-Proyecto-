@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Tablero {
     private static Tablero instancia;
     private static Linea jugador;
@@ -45,20 +47,20 @@ public class Tablero {
             activar = Tablero.ObtenerLineaLeshy();
         }
 
-        for (Carta c : activar.getHuecos()) {
+        for (int i=0;i<4;i++) {
 
-            if (c == null) {
+            if (activar.getHuecos()[i] == null) {
             }
 
             else {
 
-                for (Sello s : c.getSellos()) {
+                for (Sello s : new ArrayList<>(activar.getHuecos()[i].getSellos())) {
 
-                    if (s != null && s.getEtapa() == Etapa.INICIO_TURNO) {
-
-                        s.usarSello(c);
-                    }
-                }
+    if (s != null && s.getEtapa() == Etapa.INICIO_TURNO) {
+        
+        s.usarSello(activar.getHuecos()[i], i, turno);
+    }
+}
             }
 
         }
@@ -66,6 +68,7 @@ public class Tablero {
     }
 
     public void activarSellosFinal(Turno turno) {
+        System.out.println("Usando sellosss!");
         Linea activar;
         if (turno == Turno.JUGADOR) {
             activar = Tablero.ObtenerLineaJugador();
@@ -75,20 +78,28 @@ public class Tablero {
             activar = Tablero.ObtenerLineaLeshy();
         }
 
-        for (Carta c : activar.getHuecos()) {
+        ArrayList<Integer> a = new ArrayList<>();
 
-            if (c == null) {
+        for(int i=0;i<4;i++){
+
+             if (activar.getHuecos()[i] != null) {a.add(i);
+            }
+        }
+
+        for (int j : a) {
+
+            if (activar.getHuecos()[j] == null) {
             }
 
             else {
 
-                for (Sello s : c.getSellos()) {
+               for (Sello s : new ArrayList<>(activar.getHuecos()[j].getSellos())) {
 
-                    if (s != null && s.getEtapa() == Etapa.FIN_TURNO) {
-
-                        s.usarSello(c);
-                    }
-                }
+    if (s != null && s.getEtapa() == Etapa.FIN_TURNO) {
+        
+        s.usarSello(activar.getHuecos()[j], j, turno);
+    }
+}
             }
 
         }

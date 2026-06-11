@@ -233,7 +233,16 @@ if(s.getEtapa()==Etapa.RECIBIR){
                         enemigo.setHp(enemigo.getHp() - this.getAtk());
                         }
 
-                        if(enemigo.esEspinoso()){this.setHp(this.getHp()-1);}
+                        if(enemigo.esEspinoso()){
+                            this.setHp(this.getHp()-1);
+
+                            if(this.getHp()<=0){if(turno==Turno.JUGADOR){
+
+                                Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[posicionCarta]=null;
+                            }
+                        else{Tablero.ObtenerInstancia().ObtenerLineaLeshy().getHuecos()[posicionCarta]=null;}
+                        }
+                        }
                         enemigo.activarRecibir(posicionCarta, turno);
                         
                     }
@@ -251,7 +260,16 @@ if(s.getEtapa()==Etapa.RECIBIR){
 
                         enemigo.setHp(enemigo.getHp() - this.getAtk());
                         }
-                        if(enemigo.esEspinoso()){this.setHp(this.getHp()-1);}
+                        if(enemigo.esEspinoso()){
+                            this.setHp(this.getHp()-1);
+
+                            if(this.getHp()<=0){if(turno==Turno.JUGADOR){
+
+                                Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[posicionCarta]=null;
+                            }
+                        else{Tablero.ObtenerInstancia().ObtenerLineaLeshy().getHuecos()[posicionCarta]=null;}
+                        }
+                        }
                     enemigo.activarRecibir(posicionCarta, turno);
                     
                 }
@@ -313,7 +331,16 @@ if(s.getEtapa()==Etapa.RECIBIR){
 
                         enemigo.setHp(enemigo.getHp() - this.getAtk());
                         }
-                        if(enemigo.esEspinoso()){this.setHp(this.getHp()-1);}
+                        if(enemigo.esEspinoso()){
+                            this.setHp(this.getHp()-1);
+
+                            if(this.getHp()<=0){if(turno==Turno.JUGADOR){
+
+                                Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[posicionCarta]=null;
+                            }
+                        else{Tablero.ObtenerInstancia().ObtenerLineaLeshy().getHuecos()[posicionCarta]=null;}
+                        }
+                        }
                         enemigo.activarRecibir(posicionCarta, turno);
                         
                     }
@@ -331,7 +358,16 @@ if(s.getEtapa()==Etapa.RECIBIR){
 
                         enemigo.setHp(enemigo.getHp() - this.getAtk());
                         }
-                        if(enemigo.esEspinoso()){this.setHp(this.getHp()-1);}
+                        if(enemigo.esEspinoso()){
+                            this.setHp(this.getHp()-1);
+
+                            if(this.getHp()<=0){if(turno==Turno.JUGADOR){
+
+                                Tablero.ObtenerInstancia().ObtenerLineaJugador().getHuecos()[posicionCarta]=null;
+                            }
+                        else{Tablero.ObtenerInstancia().ObtenerLineaLeshy().getHuecos()[posicionCarta]=null;}
+                        }
+                        }
                     enemigo.activarRecibir(posicionCarta, turno);
                     
                 }

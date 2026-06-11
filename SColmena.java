@@ -19,7 +19,7 @@ public class SColmena extends Sello {
 @Override
     public void usarSello(Carta esta,int posicion,Turno turno){
 
-if(turno==Turno.JUGADOR){
+
 
 ArrayList<Sello> s = (ArrayList<Sello>) esta.getSellos().clone();
     s.remove(Sellos_in_game.buscarSello("colmena"));
@@ -31,7 +31,7 @@ ArrayList<Sello> s = (ArrayList<Sello>) esta.getSellos().clone();
     if(!esta.esVolador()){a.getSellos().add(Sellos_in_game.buscarSello("volador"));}
         Jugador.getMano().add(a);
         System.out.println("Has recibido una abeja");
-}
+
     }
     
 }
