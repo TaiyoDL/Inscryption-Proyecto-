@@ -68,7 +68,7 @@ public class Tablero {
     }
 
     public void activarSellosFinal(Turno turno) {
-        System.out.println("Usando sellosss!");
+        
         Linea activar;
         if (turno == Turno.JUGADOR) {
             activar = Tablero.ObtenerLineaJugador();
@@ -129,6 +129,8 @@ public class Tablero {
                 if (Tablero.ObtenerInstancia().ObtenerLineaLeshy().getHuecos()[i] == null) {
                     Tablero.ObtenerInstancia().ObtenerLineaLeshy().getHuecos()[i] = Tablero.ObtenerInstancia()
                             .ObtenerLineaTraseraLeshy().getHuecos()[i];
+                            Tablero.ObtenerInstancia()
+                            .ObtenerLineaTraseraLeshy().getHuecos()[i].activarSellosLanzar(i,Turno.LESHY);
                     Tablero.ObtenerInstancia().ObtenerLineaTraseraLeshy().getHuecos()[i] = null;
                 }
 

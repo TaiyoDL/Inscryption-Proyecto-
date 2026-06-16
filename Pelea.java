@@ -26,7 +26,7 @@ public class Pelea {
             }
 
             tablero.ObtenerLineaLeshy().getHuecos()[p] = mazoLeshy.get(c);
-            mazoLeshy.get(c).activarSellosLanzar(p,Turno.LESHY);
+            
             mazoLeshy.remove(mazoLeshy.get(c));
 
         }
